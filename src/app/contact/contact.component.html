@@ -1,6 +1,10 @@
 <h1>Kapcsolat</h1>
 
-<form [formGroup]="messageForm" (ngSubmit)="onSubmit()">
+<!--div *ngIf = "!isShow">This is a div which toggles.</div-->
+<button (click) = contactDisplay() >Kapcsolat</button> <button (click) = productDisplay()>Új márka ajánlása</button> <button (click) = placeDisplay()>Új hely ajánlása</button>
+<br><br><br>
+
+<form [formGroup]="messageForm" (ngSubmit)="onSubmit()" *ngIf = "!isShow">
 
     <h5 *ngIf="success">Az üzenet sikeresen elküldve!</h5>
 
@@ -34,7 +38,7 @@
 
   <div *ngIf="submitted" class="results">
     <strong>Név és e-mail cím:</strong> 
-    <span>{{ messageForm.controls.name.value }} {{ messageForm.controls.email.value }}</span>
+    <span>Név: {{ messageForm.controls.name.value }} és e-mail cím:{{ messageForm.controls.email.value }}</span>
 
     <strong>Üzenet:</strong> 
     <span>{{ messageForm.controls.message.value }}</span>
@@ -42,94 +46,113 @@
 
 <!--2 darab form, az egyik az új hely bejelntésére, a másik pedig új termék, termékcsalád bejelntésére. Ha meg lehet oldani, akkor ezek csak adott gomb megnyomására jelenjenek meg.-->
 <br><br>
+<form [formGroup]="newProdForm" (ngSubmit)="onSubmitProduct()" *ngIf = "isShowProd">
 
-<!--(click)="showProdForm()
-(click)="showPlaceForm()"-->
+  <div class="newProduct">
+  <h1>Új termék vagy termékcsalád ajánlása</h1>
+  
+  <h5 *ngIf="successProd">Az üzenet sikeresen elküldve!</h5>
 
-<button mat-raised-button >New Product</button><br><br>
-<button mat-raised-button >New Place</button>
+  <label>
+    Név:
+    <input type="text" formControlName="name">
+    <div *ngIf="submittedNewProd && newProdForm.controls.name.errors" class="error">
+      <div *ngIf="newProdForm.controls.name.errors.required">A név kitöltése kötelező!</div>
+    </div>
+  </label>
 
-<form [formGroup]="newPlaceForm" (ngSubmit)="onSubmit()">
-
-<div class="newProduct">
-<h1>Új termék vagy termékcsalád ajánlása</h1>
-
-<label>
-  Név:
-  <input type="text" formControlName="name">
-  <div *ngIf="submittedNewPlace && messageForm.controls.name.errors" class="error">
-    <div *ngIf="messageForm.controls.name.errors.required">A név kitöltése kötelező!</div>
+  <label>
+    E-mail cím:
+    <input type="email" formControlName="email">
+    <div *ngIf="submittedNewProd && newProdForm.controls.email.errors" class="error">
+      <div *ngIf="newProdForm.controls.email.errors.required">Az e-mail cím kitöltése kötelező!</div>
+    </div>
+  </label>
+  
+  <label>
+    Termék vagy termékcsalád pontos neve:
+    <input type="text" formControlName="productName">
+    <div *ngIf="submittedNewProd && newProdForm.controls.productName.errors" class="error">
+      <div *ngIf="newProdForm.controls.productName.errors.required">A terméknév kitöltése kötelező!</div>
+    </div>
+  </label>
+  
+  <label>
+    Termékcsalád rövid leírása:
+    <textarea formControlName="message"></textarea>
+    <div *ngIf="submittedNewProd && newProdForm.controls.message.errors" class="error">
+      <div *ngIf="newProdForm.controls.message.errors.required">Az üzenet kitöltése kötelező!</div>
+    </div>
+  </label>
+  
+  <input type="submit" value="Küldés" class="cta">
   </div>
-</label>
+  </form>
 
-<label>
-  E-mail cím:
-  <input type="email" formControlName="email">
-  <div *ngIf="submittedNewPlace && messageForm.controls.email.errors" class="error">
-    <div *ngIf="messageForm.controls.email.errors.required">Az e-mail cím kitöltése kötelező!</div>
+  
+  <!--div *ngIf="submittedNewProd" class="results">
+    <a>Teszt jellegű üzenet kiírása:</a>
+    <strong>Név és e-mail cím:</strong> 
+    <span>Név: {{ messageForm.controls.name.value }} és e-mail cím:{{ messageForm.controls.email.value }}</span>
+
+    <strong>Üzenet:</strong> 
+    <span>{{ messageForm.controls.message.value }}</span>
+  </div-->
+
+
+  <!--Új Hely ajánlásának formja-->
+  
+  <br><br>
+  
+<form [formGroup]="newPlaceForm" (ngSubmit)="onSubmitPlace()" *ngIf = "isShowPlace">
+  <div class="newPlace">
+  <h1>Új hely ajánlása</h1>
+  
+  <h5 *ngIf="successPlace">Az üzenet sikeresen elküldve!</h5>
+
+  <label>
+    Név:
+    <input type="text" formControlName="name">
+    <div *ngIf="submittedNewPlace && newPlaceForm.controls.name.errors" class="error">
+      <div *ngIf="newPlaceForm.controls.name.errors.required">A név kitöltése kötelező!</div>
+    </div>
+  </label>
+  
+  <label>
+    E-mail cím:
+    <input type="email" formControlName="email">
+    <div *ngIf="submittedNewPlace && newPlaceForm.controls.email.errors" class="error">
+      <div *ngIf="newPlaceForm.controls.email.errors.required">Az e-mail cím kitöltése kötelező!</div>
+    </div>
+  </label>
+  
+  <label>
+    Hely pontos neve és címe:
+    <input type="text" formControlName="placeName">
+    <div *ngIf="submittedNewPlace && newPlaceForm.controls.placeName.errors" class="error">
+      <div *ngIf="newPlaceForm.controls.placeName.errors.required">A hely adatainak kitöltése kötelező!</div>
+    </div>
+  </label>
+  
+  <label>
+    Hely jellemzője röviden:
+    <textarea formControlName="message"></textarea>
+    <div *ngIf="submittedNewPlace && newPlaceForm.controls.message.errors" class="error">
+      <div *ngIf="newPlaceForm.controls.message.errors.required">Az üzenet kitöltése kötelező!</div>
+    </div>
+  </label>
+  
+  <!--Meg kell oldani, hogy a küldés gomb megnyomása mindig az aktuális szerkesztett formra vonatkozzon.. szakaszok figyelésével? vagy teljesen külön formokkal lenne jobb? 
+  Továbbá: adott form előhívása csak gombbal? "Új helyet ajánlok" "új terméket ajánlok"-->
+  <input type="submit" value="Küldés" class="cta">
   </div>
-</label>
-
-<label>
-  Termék vagy termékcsalád pontos neve:
-  <input type="text" formControlName="productName">
-  <div *ngIf="submittedNewPlace && messageForm.controls.email.errors" class="error">
-    <div *ngIf="messageForm.controls.email.errors.required">A terméknév kitöltése kötelező!</div>
-  </div>
-</label>
-
-<label>
-  Termék vagy termékcsalád jellemzői röviden:
-  <textarea formControlName="message"></textarea>
-  <div *ngIf="submittedNewPlace && messageForm.controls.message.errors" class="error">
-    <div *ngIf="messageForm.controls.message.errors.required">Az üzenet kitöltése kötelező!</div>
-  </div>
-</label>
-
-<input type="submitProduct" value="Küldés" class="cta">
-</div>
 </form>
-<!--Új Hely ajánlásának formja-->
 
-<br><br>
+<!--div *ngIf="submittedNewPlace" class="results">
+  <a>Teszt jellegű üzenet kiírása:</a>
+  <strong>Név és e-mail cím:</strong> 
+  <span>Név: {{ messageForm.controls.name.value }} és e-mail cím:{{ messageForm.controls.email.value }}</span>
 
-<form [formGroup]="newProdForm" (ngSubmit)="onSubmit()"></form>
-<div class="newPlace">
-<h1>Új hely ajánlása</h1>
-
-<label>
-  Név:
-  <input type="text" formControlName="name">
-  <div *ngIf="submittedNewProd && messageForm.controls.name.errors" class="error">
-    <div *ngIf="messageForm.controls.name.errors.required">A név kitöltése kötelező!</div>
-  </div>
-</label>
-
-<label>
-  E-mail cím:
-  <input type="email" formControlName="email">
-  <div *ngIf="submittedNewProd && messageForm.controls.email.errors" class="error">
-    <div *ngIf="messageForm.controls.email.errors.required">Az e-mail cím kitöltése kötelező!</div>
-  </div>
-</label>
-
-<label>
-  Hely pontos neve és címe:
-  <input type="text" formControlName="placeName">
-  <div *ngIf="submittedNewProd && messageForm.controls.email.errors" class="error">
-    <div *ngIf="messageForm.controls.email.errors.required">A hely adatainak kitöltése kötelező!</div>
-  </div>
-</label>
-
-<label>
-  Hely jellemzője röviden:
-  <textarea formControlName="message"></textarea>
-  <div *ngIf="submittedNewProd && messageForm.controls.message.errors" class="error">
-    <div *ngIf="messageForm.controls.message.errors.required">Az üzenet kitöltése kötelező!</div>
-  </div>
-</label>
-
-<!--Meg kell oldani, hogy a küldés gomb megnyomása mindig az aktuális szerkesztett formra vonatkozzon.. szakaszok figyelésével? vagy teljesen külön formokkal lenne jobb? 
-Továbbá: adott form előhívása csak gombbal? "Új helyet ajánlok" "új terméket ajánlok" -->
-<input type="submitPlace" value="Küldés" class="cta">
-</div>>
+  <strong>Üzenet:</strong> 
+  <span>{{ messageForm.controls.message.value }}</span>
+</div-->

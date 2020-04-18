@@ -16,49 +16,79 @@ export class ContactComponent implements OnInit {
   submittedNewProd = false;
   submittedNewPlace = false;
   success = false;
+  successProd = false;
+  successPlace = false;
+  isShow=false;
+  isShowProd = false;
+  isShowPlace = false;
 
   constructor(private formBuilder: FormBuilder) { }
 
-  //Név és üzenet megadása kötelező
+  //Validálás, hogy hiányzik-e bármi
   ngOnInit() {
     this.messageForm = this.formBuilder.group({
       name: ['', Validators.required],
       email: ['', Validators.required],
       message: ['', Validators.required]
     });
-    this.newPlaceForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      email: ['', Validators.required],
-      productName: ['', Validators.required],
-      message: ['', Validators.required]
-    });
     this.newProdForm = this.formBuilder.group({
       name: ['', Validators.required],
       email: ['', Validators.required],
-      placeName: ['', Validators.required],
+      productName: ['', Validators.required],
       message: ['', Validators.required]      
+    });
+    this.newPlaceForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      email: ['', Validators.required],
+      placeName: ['', Validators.required],
+      message: ['', Validators.required]
     });
   }
 
-  //Ha minden rendben, akkor elküldhető az üzenet. Az onSubmit ezt vizsgálja.
+  //TODO kódduplikáció elkerülésére, valami szebb megoldás... if-ben vizsgálat?
+  //Ha minden rendben a Kapcsolat formon, akkor elküldhető az üzenet. Az onSubmit ezt vizsgálja.
   onSubmit(){
+    //A form küldés gombjának megnyomására beállítom a submitted változó értékét true-ra, ami alapján lemegy a validáció, hogy minden rendben van-e
     this.submitted = true;
-    this.submittedNewPlace = true;
-    this.submittedNewProd = true;
 
     //ha a message form invalid, nem történik semmi, egyébként pedig a success változó true-ra állítódik.
     if(this.messageForm.invalid){
       return;
-    }
-    if(this.newPlaceForm.invalid){
-      return;
-    }
-    if(this.newProdForm.invalid){
-      return;
-    }
-    this.success = true;
+    } this.success = true;
+      //contactButton disabled-re állításának problémája.
+
   }
 
-  //OnClick események megvalósítása a kettő gombra, azzal együtt, hogy melyik div osztály jelenjen meg.
+  onSubmitProduct(){
+    this.submittedNewProd = true;
+
+    if(this.newProdForm.invalid){
+      return;
+    } this.successProd = true;
+  }
+
+  onSubmitPlace(){
+    this.submittedNewPlace = true;
+
+    if(this.newPlaceForm.invalid){
+      return;
+    } this.successPlace = true;
+  }
+
+   //OnClick események megvalósítása a kettő gombra, azzal együtt, hogy melyik form jelenjen meg. Későbbi terv, minden form automatikus kikapcsolása, ha épp nem azt választotta a felhasználó.
+  contactDisplay(){
+    this.isShow = !this.isShow;
+  }
+
+ 
+  productDisplay(){
+    this.isShowProd = !this.isShowProd;
+  }
+
+  placeDisplay(){
+    this.isShowPlace = !this.isShowPlace;
+  }
+
+  
 
 }
