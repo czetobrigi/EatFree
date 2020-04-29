@@ -1,28 +1,52 @@
-<!--h1>Kereső</h1>
-
-<form>
-    <input type="checkbox" id="gluten" name="gluten" value="Glutén">
-    <label for="gluten"> Glutén</label><br>
-    <input type="checkbox" id="lactose" name="lactose" value="Laktóz">
-    <label for="lactose"> Laktóz</label><br>
-    <input type="checkbox" id="milk" name="milk" value="Tej">
-    <label for="milk"> Tej</label><br><br>
-    <input type="submit" value="submit">
-</form>
-
-<form>
-    <label for="fname">First name:</label><br>
-    <input type="text" id="fname" name="fname"><br>
-    <label for="lname">Last name:</label><br>
-    <input type="text" id="lname" name="lname">
-  </form--> 
-
-  <h1>Kereső</h1>
-  <br><br>
-  <div>
-  <label class="searchField" for="gsearch">Hely megadása:</label>
-  <input type="search" id="gsearch" name="gsearch"> 
+ <h1>Kereső</h1>
   <br>
+  <!-- Keresési feltételeket definiáló mezők létrehozása. Lehetőség van cím, hely neve, típus, vagy ezek bármilyen kombinációja szerint keresni.-->
+  <div>
+    <label class="addressOfPlace" for="gsearch">Cím megadása: </label>
+    <input type="search" id="gsearch" name="addressOfPlace"> 
+  </div>
+  <br>
+  <div>
+    <label class="nameOfPlace" for="gsearch">Hely nevének megadása: </label>
+    <input type="search" id="gsearch" name="nameOfPlace"> 
+  </div>
+  <br>
+  <div>
+    <label class="typeOfPlace" for="types">Hely típusának választása: </label>
+    <select id="types">
+      <option value="saab">Bármi</option>
+      <option value="opel">Pékség</option>
+      <option value="audi">Cukrászda</option>
+      <option value="saab">Üzlet</option>
+      <option value="opel">Házhozszállítás</option>
+      <option value="audi">Étterem</option>
+    </select>
+  </div>
+  <br>
+
+  <label for="province" accesskey="p">Province / Territory</label>
+<select name="province" id="province">
+	<option>Alberta
+	<option>British Columbia
+</select>
+  <!--form [formGroup]="searchForm"> <(ngSubmit)="onSubmit(form.value)" *ngFor="let specialities of specialities.controls; let i=index"-->
+    <!--div>
+      <input type="checkbox" [formControl]="specialities">{{intOrSpec.specialities.name}}
+    </div>
+  </form>
+
+
+   <button type="button" class="cta">Keresés</button>
+  <label ng-repeat="platform in newplatforms">
+    <input type="checkbox" name="{{platform.name}}" id="{{platform.name}}" ng-model="platform.checked" ng-change="selectedPlatforms()">
+    <label for="{{platform.name}}">{{platform.name}}</label>
+  </label>
+  <pre>{{application.platforms}}</pre>
+  
+  <button ng-click='showSelectedPlatforms()'>Show</button>
+  
+  <pre>{{selectedone}}</pre-->
+  <!--div>
   <label class="container">Glutén
     <input type="checkbox" checked="checked">
     <span class="checkmark"></span>
@@ -39,15 +63,16 @@
     <input type="checkbox">
     <span class="checkmark"></span>
   </label>
-  </div>
+  </div-->
   
   <h3>My Google Maps Demo</h3>
-    <!--The div element for the map -->
+    <!--A térkép div elemje -->
     <div id="map"></div>
-<script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqFBC-EDVzCdBbvuNCkaMOndLp2IQpOfs&callback=initMap">
         // Initialize and add the map
     function initMap() {
-        // The location of Uluru
+        // A térkép kezdeti megjelenített értéke szélességi és hosszúsági koordináták szerint
         var central = {lat: 47.2933, lng: 19.0305};
         // The map, centered at Uluru
         var map = new google.maps.Map(
@@ -56,7 +81,7 @@
         var marker = new google.maps.Marker({position: central, map: map});
     }
 </script>
-<script async defer
+<!--script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqFBC-EDVzCdBbvuNCkaMOndLp2IQpOfs&callback=initMap">
-</script>
-        
+</script-->
+<!-- Melyik a helyes megoldás? Ha külön scriptben vannak, vagy ha azonosban?-->
