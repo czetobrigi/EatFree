@@ -116,3 +116,16 @@
       background-color: rgb(149, 33, 243);
     }
   }
+
+  button {
+    background: rgb(118, 1, 253);
+    border: none;
+    color: white;
+
+    text-transform: uppercase;
+    border-radius: 4px;
+    padding: 1em;
+    cursor: pointer;
+    font-family: 'Montserrat';
+    margin-left: 30px;
+}

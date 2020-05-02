@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SystemJsNgModuleLoader } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormArray, FormControl} from '@angular/forms'
 //import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 
@@ -39,6 +39,11 @@ export class SearchComponent implements OnInit {
   onSelectAll(items: any) {
     console.log(items);
   }
+
+  onSubmit(){
+    
+  }
+
 }
 
 

@@ -7,7 +7,11 @@ import { UserService, AuthenticationService, AlertService } from '../_services';
 import { first } from 'rxjs/operators';
 
 
-@Component({templateUrl: 'profile.component.html'})
+@Component({
+    selector: 'app-profile',
+    templateUrl: './profile.component.html',
+    styleUrls: ['./profile.component.scss']
+})
 export class ProfileComponent implements OnInit {
     registerForm: FormGroup;
     loading = false;
