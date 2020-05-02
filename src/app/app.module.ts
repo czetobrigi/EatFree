@@ -10,6 +10,7 @@ import { NavComponent } from './nav/nav.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     //Contact us modulehoz form
     FormsModule,
     ReactiveFormsModule,
+    NgSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

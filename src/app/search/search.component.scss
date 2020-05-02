@@ -1,4 +1,5 @@
 /* The container */
+
 .container {
     display: grid;
     //align-items: center;
@@ -97,7 +98,7 @@
 
   }
 
-  .multiselect{
+  .multiselect, .ng-select.custom{
     display: inline-block;
     border: 1px solid #adadad;
     width: 100%;
@@ -129,3 +130,37 @@
     font-family: 'Montserrat';
     margin-left: 30px;
 }
+
+/*.ng-select.custom {
+  border:5px;
+  min-height: 30px;
+  border-radius: 3;
+}
+.ng-select.custom .ng-select-container  {            
+  min-height: 30px;
+  border-radius: 0;
+}
+
+ng-select.ng-invalid.ng-touched .ng-select-container {
+  border-color: rgb(118, 1, 253);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 0 3px #fde6e8;
+}
+
+/*ng-select.ng-select.custom{
+  scrollbar-highlight-color: blueviolet;
+}
+
+.ng-select.custom {
+  .ng-select-container {
+    height: 42px;
+    background-color: blueviolet;
+    border: 1px solid;
+    .ng-value-container {
+      color: black;
+
+      .ng-placeholder {
+        color: black;
+      }
+    }
+  }
+}*/

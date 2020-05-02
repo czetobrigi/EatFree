@@ -24,6 +24,19 @@
   </div>
   <br>
 <div>
+  <ng-select class="custom" [items]="items"
+               bindLabel="name"
+               placeholder="Select item"
+               appendTo="body"
+               multiple="true"
+               [(ngModel)]="selected">
+               <ng-template ng-optgroup-tmp let-item="item" let-item$="item$" let-index="index">
+                <input id="item-{{index}}" type="checkbox" [ngModel]="item$.selected"/> {{item.gender | uppercase}}
+            </ng-template>
+            <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
+                <input id="item-{{index}}" type="checkbox" [ngModel]="item$.selected"/> {{item.name}}
+            </ng-template>
+    </ng-select>
   <!--ng-multiselect-dropdown
   [placeholder]="'Válasszon érzékenyéget'"
   [data]="dropdownList"
