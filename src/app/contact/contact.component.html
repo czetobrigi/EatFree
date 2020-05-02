@@ -36,13 +36,13 @@
   
   </form>
 
-  <div *ngIf="submitted" class="results">
+  <!--div *ngIf="submitted" class="results">
     <strong>Név és e-mail cím:</strong> 
     <span>Név: {{ messageForm.controls.name.value }} és e-mail cím:{{ messageForm.controls.email.value }}</span>
 
     <strong>Üzenet:</strong> 
     <span>{{ messageForm.controls.message.value }}</span>
-  </div>
+  </div-->
 
 <!--2 darab form, az egyik az új hely bejelntésére, a másik pedig új termék, termékcsalád bejelntésére. Ha meg lehet oldani, akkor ezek csak adott gomb megnyomására jelenjenek meg.-->
 <br><br>
@@ -88,17 +88,6 @@
   <input type="submit" value="Küldés" class="cta">
   </div>
   </form>
-
-  
-  <!--div *ngIf="submittedNewProd" class="results">
-    <a>Teszt jellegű üzenet kiírása:</a>
-    <strong>Név és e-mail cím:</strong> 
-    <span>Név: {{ messageForm.controls.name.value }} és e-mail cím:{{ messageForm.controls.email.value }}</span>
-
-    <strong>Üzenet:</strong> 
-    <span>{{ messageForm.controls.message.value }}</span>
-  </div-->
-
 
   <!--Új Hely ajánlásának formja-->
   
@@ -147,12 +136,3 @@
   <input type="submit" value="Küldés" class="cta">
   </div>
 </form>
-
-<!--div *ngIf="submittedNewPlace" class="results">
-  <a>Teszt jellegű üzenet kiírása:</a>
-  <strong>Név és e-mail cím:</strong> 
-  <span>Név: {{ messageForm.controls.name.value }} és e-mail cím:{{ messageForm.controls.email.value }}</span>
-
-  <strong>Üzenet:</strong> 
-  <span>{{ messageForm.controls.message.value }}</span>
-</div-->

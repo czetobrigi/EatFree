@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { User } from './_models/user';
+//import { User } from './_models/user';
 import { Router } from '@angular/router';
 import { AuthenticationService } from './_services';
 
@@ -11,10 +11,10 @@ import { AuthenticationService } from './_services';
 export class AppComponent {
   title = 'EatFree';
 
-  currentUser: User;
+  /*currentUser: User;
 
     constructor(private router: Router, private authenticationService: AuthenticationService) {
         this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
-    }
+    }*/
 
 }

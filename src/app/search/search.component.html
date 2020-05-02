@@ -24,46 +24,7 @@
   </div>
   <br>
 
-  <label for="province" accesskey="p">Province / Territory</label>
-<select name="province" id="province">
-	<option>Alberta
-	<option>British Columbia
-</select>
-  <!--form [formGroup]="searchForm"> <(ngSubmit)="onSubmit(form.value)" *ngFor="let specialities of specialities.controls; let i=index"-->
-    <!--div>
-      <input type="checkbox" [formControl]="specialities">{{intOrSpec.specialities.name}}
-    </div>
-  </form>
-
-
-   <button type="button" class="cta">Keresés</button>
-  <label ng-repeat="platform in newplatforms">
-    <input type="checkbox" name="{{platform.name}}" id="{{platform.name}}" ng-model="platform.checked" ng-change="selectedPlatforms()">
-    <label for="{{platform.name}}">{{platform.name}}</label>
-  </label>
-  <pre>{{application.platforms}}</pre>
   
-  <button ng-click='showSelectedPlatforms()'>Show</button>
-  
-  <pre>{{selectedone}}</pre-->
-  <!--div>
-  <label class="container">Glutén
-    <input type="checkbox" checked="checked">
-    <span class="checkmark"></span>
-  </label>
-  <label class="container">Laktóz
-    <input type="checkbox">
-    <span class="checkmark"></span>
-  </label>
-  <label class="container">Tojás
-    <input type="checkbox">
-    <span class="checkmark"></span>
-  </label>
-  <label class="container">Zeller
-    <input type="checkbox">
-    <span class="checkmark"></span>
-  </label>
-  </div-->
   
   <h3>My Google Maps Demo</h3>
     <!--A térkép div elemje -->
@@ -81,7 +42,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqFBC-EDVzCdBbvuNCkaMOndL
         var marker = new google.maps.Marker({position: central, map: map});
     }
 </script>
-<!--script async defer
+<script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqFBC-EDVzCdBbvuNCkaMOndLp2IQpOfs&callback=initMap">
-</script-->
+</script>
 <!-- Melyik a helyes megoldás? Ha külön scriptben vannak, vagy ha azonosban?-->

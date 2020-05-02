@@ -10,7 +10,40 @@ import { FormBuilder, FormGroup, Validators, FormArray, FormControl} from '@angu
 export class SearchComponent implements OnInit {
   searchForm: FormGroup;
 
-  intOrSpec = {
+  constructor(){
+
+  }
+
+  items = [
+    {id: 1, name: 'Python'},
+    {id: 2, name: 'Node Js'},
+    {id: 3, name: 'Java'},
+    {id: 4, name: 'PHP', disabled: true},
+    {id: 5, name: 'Django'},
+    {id: 6, name: 'Angular'},
+    {id: 7, name: 'Vue'},
+    {id: 8, name: 'ReactJs'},
+  ];
+  selected = [
+    {id: 2, name: 'Node Js'},
+    {id: 8, name: 'ReactJs'}
+  ];
+
+  ngOnInit(): void {
+    throw new Error("Method not implemented.");
+  }
+
+  onItemSelect(item: any) {
+    console.log(item);
+  }
+  onSelectAll(items: any) {
+    console.log(items);
+  }
+}
+
+
+  
+  /*intOrSpec = {
     specialities: [
       {name:'Glutén', selected: false, id: 1},
       {name:'Tej', selected: false, id: 2},
@@ -28,11 +61,4 @@ export class SearchComponent implements OnInit {
     this.searchForm = this.formBuilder.group({
       specialities: this.formBuilder,
     });
-  }
-
-
-  ngOnInit(): void {
-    throw new Error("Method not implemented.");
-  }
-  
-}
+  }*/

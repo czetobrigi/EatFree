@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, Form } from '@angular/forms';
 
 import { UserService, AuthenticationService, AlertService } from '../_services';
-import { User } from '../_models/user';
+//import { User } from '../_models/user';
 import { first } from 'rxjs/operators';
 
 
@@ -21,9 +21,9 @@ export class ProfileComponent implements OnInit {
         private alertService: AlertService
         ){
             //meg kell vizsgálni, hogy a felhasználó be van e már lépve, mert ha igen, akkor a kezdőoldal töltődjön be
-            if(this.authenticationService.currentUserValue){
+            /*if(this.authenticationService.currentUserValue){
                 this.router.navigate(['/home']);
-            }
+            }*/
         }
 
     ngOnInit() {
@@ -35,6 +35,8 @@ export class ProfileComponent implements OnInit {
         });
         }
 
+    get f() { return this.registerForm.controls; }
+        
     onSubmit(){
         //rákattintott a felhasználó a Regisztráció gombra
         this.submitted = true;
@@ -46,14 +48,15 @@ export class ProfileComponent implements OnInit {
 
         this.loading = true;
         //ha azonban sikeres az űrlap kitöltése, akkor megtörténik afelhasználó regisztrációja
-        this.userService.register(this.registerForm.value).pipe(first()).subscribe( data => {
-            this.alertService.success('Sikeres előregisztráció! :)', true);
-            this.router.navigate(['/search']);
-        },
+        /*this.userService.register(this.registerForm.value).pipe(first()).subscribe( data => {
+            
+        },*/
+        this.alertService.success('Sikeres előregisztráció! :)', true);
+        this.router.navigate(['/search']);
         //ha valamiért mégsem sikeres a regisztrációs folyamat, hibaüzenetet kell küldeni a felhasználónak
-        error => {
+        /*error => {
             this.alertService.error(error);
             this.loading = false;
-        });
+        });*/
     }
 }

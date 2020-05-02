@@ -9,11 +9,7 @@ import { ContactComponent } from './contact/contact.component';
 import { NavComponent } from './nav/nav.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { LoginComponent } from './login/login.component';
-import { place } from './_models/place';
-import { User } from './_models/user';
-//import { RegisterComponent } from './register/register.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,18 +20,13 @@ import { User } from './_models/user';
     NavComponent,
     ProfileComponent,
     HomeComponent,
-    LoginComponent,
-    //RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     //Contact us modulehoz form
-    ReactiveFormsModule
-  ],
-  exports: [
-    place,
-    User
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
