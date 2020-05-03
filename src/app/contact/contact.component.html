@@ -21,6 +21,7 @@
       <input type="email" formControlName="email">
       <div *ngIf="submitted && messageForm.controls.email.errors" class="error">
         <div *ngIf="messageForm.controls.email.errors.required">Az e-mail cím kitöltése kötelező!</div>
+        <div *ngIf="messageForm.controls.email.errors.pattern">Az e-mail cím formátuma helytelen!</div>
       </div>
     </label>
 
@@ -66,6 +67,7 @@
     <input type="email" formControlName="email">
     <div *ngIf="submittedNewProd && newProdForm.controls.email.errors" class="error">
       <div *ngIf="newProdForm.controls.email.errors.required">Az e-mail cím kitöltése kötelező!</div>
+      <div *ngIf="newProdForm.controls.email.errors.pattern">Az e-mail cím formátuma helytelen!</div>
     </div>
   </label>
   
@@ -112,6 +114,7 @@
     <input type="email" formControlName="email">
     <div *ngIf="submittedNewPlace && newPlaceForm.controls.email.errors" class="error">
       <div *ngIf="newPlaceForm.controls.email.errors.required">Az e-mail cím kitöltése kötelező!</div>
+      <div *ngIf="newPlaceForm.controls.email.errors.pattern">Az e-mail cím formátuma helytelen!</div>
     </div>
   </label>
   
