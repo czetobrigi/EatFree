@@ -1,0 +1,104 @@
+<h1>Előregisztráció</h1>
+
+<h3>Kedves jövőbeli felhasználó!</h3>
+<p>Ezen az oldalon egy előregisztráció folyamat segítségével a későbbiekben sokkal több menüponthoz hozzáférhetsz majd.</p>
+<p>Mivel ez még csak egy Demo verzió, így jelenleg nem tudok az eddigieken túl plusz szolgáltatást nyújtani, de a segítségeddel a jövőben még jobb lehet az oldal! </p>
+<p>Az alább regisztrációs űrlap kitöltésével segítheted további munkámat, valamint friss információkat kaphatsz az újabb fejleményekről és a fejlesztés folyamatáról.</p>
+
+<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <h5 *ngIf="success">Sikeres regisztráció!</h5>
+
+    <label>
+        Vezetéknév:
+        <input type="text" formControlName="firstName">
+        <div *ngIf="submitted && registrationForm.controls.firstName.errors" class="error">
+          <div *ngIf="registrationForm.controls.firstName.errors.required">A vezetéknév kitöltése kötelező!</div>
+        </div>
+    </label>
+
+    <label>
+        Keresztnév:
+        <input type="text" formControlName="lastName">
+        <div *ngIf="submitted && registrationForm.controls.lastName.errors" class="error">
+          <div *ngIf="registrationForm.controls.lastName.errors.required">A keresztnév kitöltése kötelező!</div>
+        </div>
+    </label>
+
+    <label>
+        Felhasználónév:
+        <input type="text" formControlName="userName">
+        <div *ngIf="submitted && registrationForm.controls.userName.errors" class="error">
+          <div *ngIf="registrationForm.controls.userName.errors.required">A felhasználónév kitöltése kötelező!</div>
+        </div>
+    </label>
+
+    <label>
+        E-mail cím:
+        <input type="email" formControlName="email">
+        <div *ngIf="submitted && registrationForm.controls.email.errors" class="error">
+          <div *ngIf="registrationForm.controls.email.errors.required">Az e-mail cím kitöltése kötelező!</div>
+          <div *ngIf="registrationForm.controls.email.errors.pattern">Az e-mail formátum nem helyes!</div>
+        </div>
+      </label>
+
+    <label>
+        Jelszó:
+        <input type="text" formControlName="passWord">
+        <div *ngIf="submitted && registrationForm.controls.passWord.errors" class="error">
+          <div *ngIf="registrationForm.controls.passWord.errors.required">A jelszó kitöltése kötelező!</div>
+          <div *ngIf="registrationForm.controls.passWord.errors.minlength">A jelszónek legalább 8 karakternek kell lennie!</div>
+        </div>
+    </label>
+
+    <input type="submit" value="Regisztráció" class="cta">
+
+    <!--button [disabled]="loading" class="button">
+        <span *ngIf="loading" class="spinner"></span>
+        Regisztráció
+    </button-->
+
+</form>
+
+
+
+
+
+
+<!--form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+        <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+            <div *ngIf="f.firstName.errors.required">First Name is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+        <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+            <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+            <div *ngIf="f.username.errors.required">Username is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">Password is required</div>
+            <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Register
+        </button>
+        <a routerLink="/login" class="btn btn-link">Cancel</a>
+    </div>
+</form-->

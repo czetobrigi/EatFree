@@ -11,6 +11,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { RegistrationComponent } from './registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     NavComponent,
     ProfileComponent,
     HomeComponent,
+    RegistrationComponent,
   ],
   imports: [
     BrowserModule,
