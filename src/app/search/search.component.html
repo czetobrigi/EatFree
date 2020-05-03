@@ -46,25 +46,30 @@
   (onSelectAll)="onSelectAll($event)">
 </ng-multiselect-dropdown-->
 </div>
-  <br><br>
+<br><br>
+  <legend>Találat:</legend>
+    <div>
+      <div class="result">
+        <label class="label">Hely neve:</label>
+        <div class="result">{{place.nameOfPlace}}</div>
+      </div>
+      <div class="result">
+        <label class="label">Pontos cím:</label>
+        <div class="result">{{place.postCode}}, {{place.city}}, {{place.address}}</div>
+      </div>
+      <div class="result">
+        <label class="label">Webcím:</label>
+        <div class="result">{{place.webpage}}</div>
+      </div>
+      <div class="result">
+        <label class="label">specialitás:</label>
+        <div class="result">{{place.intOrSpec}}</div>
+      </div>
+    </div>
+<br><br>
 <button value="Keresés" submit="onSubmit()">Keresés</button>
   
-  <h3>My Google Maps Demo</h3>
-    <!--A térkép div elemje -->
-    <div id="map"></div>
-<script>
-        // Initialize and add the map
-    function initMap() {
-        // A térkép kezdeti megjelenített értéke szélességi és hosszúsági koordináták szerint
-        var central = {lat: 47.2933, lng: 19.0305};
-        // The map, centered at Uluru
-        var map = new google.maps.Map(
-            document.getElementById('map'), {zoom: 4, center: central});
-        // The marker, positioned at Uluru
-        var marker = new google.maps.Marker({position: central, map: map});
-    }
-</script>
-<script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqFBC-EDVzCdBbvuNCkaMOndLp2IQpOfs&callback=initMap">
-</script>
-<!-- Melyik a helyes megoldás? Ha külön scriptben vannak, vagy ha azonosban?-->
+<br><br>
+<agm-map [latitude]="lat" [longitude]="lng">
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>

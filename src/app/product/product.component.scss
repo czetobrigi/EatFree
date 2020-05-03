@@ -3,6 +3,7 @@ ul {
     margin: 0;padding: 0;
     column-count: 2;
     position: sticky;
+    break-after: avoid-column;
 
     li {
         background: rgba(209, 207, 207, 0.616);

@@ -1,8 +1,10 @@
 import { Component, OnInit, SystemJsNgModuleLoader } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormArray, FormControl} from '@angular/forms'
+import { FormBuilder, FormGroup, Validators, FormArray, FormControl, ReactiveFormsModule} from '@angular/forms'
 import { NgSelectConfig } from '@ng-select/ng-select';
 //import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 import {ViewEncapsulation} from '@angular/core';
+import {PlaceInfoModel} from '../models/PlaceInfoModel';
+import { AgmCoreModule } from '@agm/core';
 
 @Component({
   selector: 'app-search',
@@ -11,6 +13,20 @@ import {ViewEncapsulation} from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class SearchComponent implements OnInit {
+  title: string = 'Szutyok google maps!!';
+  lat: number = 47.2933;
+  lng: number = 19.0305;
+
+
+  place: PlaceInfoModel = new PlaceInfoModel({nameOfPlace: "Szafi",
+    postCode: 1111,
+    city: "Budapest",
+    address: "Kiskunborzasztó utca 1.",
+    webpage: "www.test.com",
+    type: "bolt",
+    intOrSpec: "gltuén, laktóz, minden is"
+  });
+
   searchForm: FormGroup;
   items = [];
   selected = [];
@@ -26,7 +42,7 @@ export class SearchComponent implements OnInit {
       {id: 1, name: 'Glutén', value: 'Gluten'},
       {id: 2, name: 'Rákfélék', value: 'Crustaceans'},
       {id: 3, name: 'Tojás', value: 'Eggs'},
-      {id: 4, name: 'Haj', value: 'Fish'},
+      {id: 4, name: 'Hal', value: 'Fish'},
       {id: 5, name: 'Földimogyoró', value:'Peanuts'},
       {id: 6, name: 'Laktóz, tej', value:'Lactose, milk'},
       {id: 7, name: 'Szója', value:'Soya'},
@@ -60,26 +76,5 @@ export class SearchComponent implements OnInit {
     
   }
 
-}
-
-
   
-  /*intOrSpec = {
-    specialities: [
-      {name:'Glutén', selected: false, id: 1},
-      {name:'Tej', selected: false, id: 2},
-      {name:'Tojás', selected: false, id: 3},
-      {name:'Mogyoró', selected: false, id: 4},
-      {name:'Puhatestűek', selected: false, id: 5},
-    ]
-  }
-
-  get specialities(){
-    return this.searchForm.get('specialities');
-  }
-
-  constructor(private formBuilder: FormBuilder){
-    this.searchForm = this.formBuilder.group({
-      specialities: this.formBuilder,
-    });
-  }*/
+}
