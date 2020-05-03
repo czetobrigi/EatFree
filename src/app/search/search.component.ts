@@ -14,8 +14,11 @@ import { AgmCoreModule } from '@agm/core';
 })
 export class SearchComponent implements OnInit {
   title: string = 'Szutyok google maps!!';
-  lat: number = 47.2933;
-  lng: number = 19.0305;
+  //lat: number = 47.2933;
+  //lng: number = 19.0305;
+  lat: number;
+  lng: number;
+  zoom: number;
 
 
   place: PlaceInfoModel = new PlaceInfoModel({nameOfPlace: "Szafi",
@@ -63,6 +66,18 @@ export class SearchComponent implements OnInit {
       {id: 1, name: 'Glutén'},
       {id: 8, name: 'Vegán'}
     ];*/
+    this.setCurrentLocation();
+  }
+
+   // Get Current Location Coordinates
+   private setCurrentLocation() {
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.lat = position.coords.latitude;
+        this.lng = position.coords.longitude;
+        this.zoom = 50;
+      });
+    }
   }
 
   onItemSelect(item: any) {
