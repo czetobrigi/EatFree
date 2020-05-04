@@ -1,0 +1,105 @@
+{
+	"places": [
+	{
+		"nameOfPlace": "Kitchen of Health Bisztró II.",
+		"type": "étterem",
+		"address": {
+			"postcode": 1074,
+			"city": "Budapest",
+			"address1": "Dohány utca 63/b",
+		}
+		"specialities": [1,7]
+	},
+	{
+		"nameOfPlace": "Napfény Strand",
+		"type": "étterem",
+		"address": {
+			"postcode": 8230,
+			"city": "Balatonlelle",
+			"address1": "Séta utca 23.",
+		}
+		"specialities": [1,7]
+	},
+	{
+		"nameOfPlace": "Sanyika Halsütöde",
+		"type": "büfé",
+		"address": {
+			"postcode": 8229,
+			"city": "Csopak",
+			"address1": "Szent István tér 27. ",
+		}
+		"specialities": [1,7]
+	},
+	{
+		"nameOfPlace": "Bodza Fagyizó",
+		"type": "fagyizó",
+		"address": {
+			"postcode": 8237,
+			"city": "Tihany",
+			"address1": "Kossuth Lajos utca 18.",
+		}
+		"specialities": [1,7]
+	},
+	{
+		"nameOfPlace": "Lili's Truck",
+		"type": "büfé",
+		"address": {
+			"postcode": 2100,
+			"city": "Gödöllő",
+			"address1": "Főtér",
+		}
+		"specialities": [1,7]
+	},
+	{
+		"nameOfPlace": "Vegan Love",
+		"type": "étterem",
+		"address": {
+			"postcode": 1114,
+			"city": "Budapest",
+			"address1": "Bartók Béla út 9",
+		}
+		"specialities": [31]
+	},
+	{
+		"nameOfPlace": "Nana bistro&bar",
+		"type": "étterem",
+		"address": {
+			"postcode": 7600,
+			"city": "Pécs",
+			"address1": "Király utca 2.",
+		}
+		"specialities": [1]
+	},
+	{
+		"nameOfPlace": "Cukrátzda",
+		"type": "cukrászda",
+		"address": {
+			"postcode": 9730,
+			"city": "Kőszeg",
+			"address1": "Rákóczi Ferenc utca 14.",
+		}
+		"specialities": [1]
+	},
+	{
+		"nameOfPlace": "Las Vegan's",
+		"type": "büfé",
+		"address": {
+			"postcode": 1072,
+			"city": "Budapest",
+			"address1": " Dob u. 40.",
+		}
+		"specialities": [1,34]
+	},
+	{
+		"nameOfPlace": "",
+		"type": "",
+		"address": {
+			"postcode": ,
+			"city": "",
+			"address1": "",
+		}
+		"specialities": []
+	},
+	
+ ]
+}
